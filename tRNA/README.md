@@ -10,10 +10,9 @@ This repository contains scripts and workflows for harmonizing tRNA analysis for
  ├── 📂 scripts/               # Analysis scripts
  │    ├── filter_script.py     # Script for filtering BAM files
  │    ├── analysis_pipeline.R  # Main analysis script
- │    ├── pca_plot.R           # PCA plotting script
  │    ├── scatterplot.R        # Library reproducibility plot
  │    ├── corrplot.R           # Correlation heatmap script
- │    ├── differential_abundance.R # Differential expression analysis
+ │    ├── differential_abundance_and_pca.R # Differential expression and PC analysis
  │    ├── differential_modification.R # Differential modification analysis
  ├── 📂 data/                  # Processed data and demo files
  │    ├── demo_data.bam        # A small subset BAM file for testing
@@ -42,15 +41,14 @@ For both filtered and non-filtered datasets, we conduct the following analyses:
 1. Reproducibility Between Libraries
 * Scatterplots comparing read counts between libraries
 * Correlation plots across all libraries in an experiment
-2. Principal Component Analysis (PCA)
-* PCA visualization of sample clustering
-3. Differential Expression Analysis
+2. Differential Expression and Principal Component Analysis (PCA)
 * Using the models defined (~SeqType, ~Trt_Total, ~Trt_Ribo, ~SeqType*Trt)
 * Output: Volcano plots of differentially expressed tRNAs
-4. Differential Modification Analysis
+* Output: PCA visualization of sample clustering
+3. Differential Modification Analysis
 * Analyzing tRNA modification levels
 * Output: Heatmaps of differential modifications
-5. Output Format
+4. Output Format
 * Figures: Saved as .pdf for easy viewing and publication use
 * Result files: Stored as .tsv for further inspection and replotting
 
