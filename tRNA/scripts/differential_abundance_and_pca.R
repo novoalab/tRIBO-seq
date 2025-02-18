@@ -191,6 +191,8 @@ two_factor_analysis <- function(arguments){
                              title = '',
                              subtitle = '',
                              xlim = c(-absMax, absMax),
+                             pCutoff = 0.05,
+                             FCcutoff = 1,
                              pointSize = 5.0,
                              labSize = 6,
                              legendLabSize = 12,
