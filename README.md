@@ -50,6 +50,12 @@ Note: Each condition has a designated prefix (Again, @Hasan, please edit this as
 * **Methionine** starvation: 'MetStarve6h_' or 'MetStarve16h_'
 * **Arginine** starvation: 'ArgStarve_'
 * **Leucine** starvation: 'LeuStarve_'
+
+In Differential Abundance Analysis four suffix assigned
+* **CONTROL** : Ribo-Embedded tRNAs vs Total tRNAs in Control Samples
+* **(TREATMENT)** : This suffix changes with respect to non-control condition and it reflects Ribo-Embedded tRNAs vs Total tRNAs in non-Control Samples
+* **RE** : Non-Control vs Control samples in Ribo-Embedded tRNAs
+* **TOTAL** : Non-Control vs Control samples in Total tRNAs
   
 For each condition, we perform analysis using both filtered and non-filtered data. Please ensure that the filtering script is included in scripts/filter_script.py.
 
