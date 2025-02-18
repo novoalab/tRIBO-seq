@@ -1,0 +1,13 @@
+Sample	Condition	Type
+Control_1	Control	TOTAL
+Control_2	Control	TOTAL
+Control_3	Control	TOTAL
+LeuStarve_1	LeuStarve	TOTAL
+LeuStarve_2	LeuStarve	TOTAL
+LeuStarve_3	LeuStarve	TOTAL
+Control_1	Control	RE
+Control_2	Control	RE
+Control_3	Control	RE
+LeuStarve_1	LeuStarve	RE
+LeuStarve_2	LeuStarve	RE
+LeuStarve_3	LeuStarve	RE

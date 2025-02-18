@@ -1,0 +1,13 @@
+Sample	Condition	Type
+Control_1	Control	TOTAL
+Control_2	Control	TOTAL
+Control_3	Control	TOTAL
+MetStarve16h_1	MetStarve16h	TOTAL
+MetStarve16h_2	MetStarve16h	TOTAL
+MetStarve16h_3	MetStarve16h	TOTAL
+Control_1	Control	RE
+Control_2	Control	RE
+Control_3	Control	RE
+MetStarve16h_1	MetStarve16h	RE
+MetStarve16h_2	MetStarve16h	RE
+MetStarve16h_3	MetStarve16h	RE

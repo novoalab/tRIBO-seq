@@ -1,0 +1,9 @@
+Sample	Condition	Type
+Control_1	Control	TOTAL
+Control_2	Control	TOTAL
+Arsenite_1	Arsenite	TOTAL
+Arsenite_2	Arsenite	TOTAL
+Control_1	Control	RE
+Control_2	Control	RE
+Arsenite_1	Arsenite	RE
+Arsenite_2	Arsenite	RE

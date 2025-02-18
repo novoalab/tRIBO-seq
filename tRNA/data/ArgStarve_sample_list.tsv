@@ -1,0 +1,13 @@
+Sample	Condition	Type
+Control_1	Control	TOTAL
+Control_2	Control	TOTAL
+Control_3	Control	TOTAL
+ArgStarve_1	ArgStarve	TOTAL
+ArgStarve_2	ArgStarve	TOTAL
+ArgStarve_3	ArgStarve	TOTAL
+Control_1	Control	RE
+Control_2	Control	RE
+Control_3	Control	RE
+ArgStarve_1	ArgStarve	RE
+ArgStarve_2	ArgStarve	RE
+ArgStarve_3	ArgStarve	RE
