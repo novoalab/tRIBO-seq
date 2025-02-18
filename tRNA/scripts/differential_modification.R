@@ -1,10 +1,9 @@
 # -----------------------------------------------------------------------------
-# Title:         Differential Expression and PCA Plot
+# Title:         Differential Modification Plot
 # Author:        Hasan YILMAZ
 # Date:          13/02/25
 # Location:      Trento, Italy
-# Description:   The script is to create differential expression and PCA plot
-#to compare samples on nano-tRNASeq data.
+# Description:   The script is to create differential modification heatmaps
 # -----------------------------------------------------------------------------
 
 # ----------------------------- Load Libraries ----------------------------- #
