@@ -25,10 +25,10 @@ We apply both filtered and non-filtered analysis methods to assess reproducibili
  ├── 📂 scripts/               # Analysis scripts
  │    ├── filter_script.py     # Script for filtering BAM files
  │    ├── analysis_pipeline.R  # Main analysis script
- │    ├── pca_plot.R           # PCA plotting script
  │    ├── scatterplot.R        # Library reproducibility plot
  │    ├── corrplot.R           # Correlation heatmap script
- │    ├── differential_abundance.R # Differential expression analysis
+ │    ├── differential_abundance_and_pca.R # Differential expression and Principal component analysis in codon level
+ │    ├── differential_abundance_and_pca_aminoacid.R # Differential expression and Principal component analysis in amino acid level
  │    ├── differential_modification.R # Differential modification analysis
  ├── 📂 data/                  # Processed data and demo files
  │    ├── demo_data.bam        # A small subset BAM file for testing
