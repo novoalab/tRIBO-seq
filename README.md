@@ -63,41 +63,46 @@ For each condition, we perform analysis using both filtered and non-filtered dat
 
 For both filtered and non-filtered datasets, we conduct the following analyses:
 
+```
+Rscript script_name.R --help (Helper function for all scripts below)
+```
+
 ### 1. Reproducibility Between libraries and replicates
 
 #### 1.1. Scatterplots comparing read counts between replicates
 
 ```
-HERE CODE TO RUN, USING INPUT DATA OF REPO
+Rscript scatterplot.R --counts /path/to/counts.tsv --prefix YourExperiment_ --type RE or Total --output /path/to/out
 ```
 
 #### 1.2. Correlation plots across all libraries in an experiment
 
 ```
-HERE CODE TO RUN, USING INPUT DATA OF REPO
+Rscript corrplot.R --total /path/to/totaltRNAs/counts.tsv --re /path/to/riboembeddedtRNAs/counts.tsv --prefix YourExperiment_ --output /path/to/out
 ```
 
-### 2. Principal Component Analysis 
-#### 2.1. PCA visualization of sample clustering
+### 3. Differential Expression and Principal Component Analysis
 
-```
-HERE CODE TO RUN, USING INPUT DATA OF REPO
-```
-
-
-### 3. Differential Expression Analysis
+#### 3.1 Codon Level Analysis
 * Using the models defined (~SeqType, ~Trt_Total, ~Trt_Ribo, ~SeqType*Trt)
 * Output: Volcano plots of differentially expressed tRNAs
 * 
 ```
-HERE CODE TO RUN, USING INPUT DATA OF REPO
+Rscript differential_abundance_and_pca.R --total /path/to/totaltRNAs/counts.tsv --re /path/to/riboembeddedtRNAs/counts.tsv --prefix YourExperiment_ --sample_list /path/to/sample_list.tsv --output /path/to/out
+```
+#### 3.2 Amino Acid Level Analysis
+* Using the models defined (~SeqType, ~Trt_Total, ~Trt_Ribo, ~SeqType*Trt)
+* Output: Volcano plots of differentially expressed tRNAs
+* 
+```
+Rscript differential_abundance_and_pca_aminoacid.R --total /path/to/totaltRNAs/counts.tsv --re /path/to/riboembeddedtRNAs/counts.tsv --prefix YourExperiment_ --sample_list /path/to/sample_list.tsv --output /path/to/out
 ```
 
 ### 4. Differential Modification Analysis
 
 #### tRNA heatmap
 ```
-HERE CODE TO RUN, USING INPUT DATA OF REPO
+Rscript differential_modification.R --total /path/to/totaltRNAs/counts.tsv --re /path/to/riboembeddedtRNAs/counts.tsv --prefix YourExperiment_ --sample_list /path/to/sample_list.tsv --fasta /path/to/tRNAs/alignment/database.aln.fa --output /path/to/out
 ```
 
 ## Expected Output
@@ -111,14 +116,16 @@ Results of the pipeline using the demo data can be found in the [results](https:
 ## Pre-filtering of the BAM files
 
 ```
-HERE CODE TO RUN, USING INPUT DATA OF REPO
+python3 filter_script.py -i /path/to/input_list.tsv -o /path/to/out -c
 ```
 
 ## Dependencies and versions 
 
 Software | Version 
---- | ---
-PLEASE FILL IN  | FILL IN
+R | 4.4.2
+python | 3.12.4
+pandas | 2.2.3
+pysam | 0.22.1
 
 ## Citation
 
