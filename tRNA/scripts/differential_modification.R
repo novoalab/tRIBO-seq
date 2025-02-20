@@ -221,7 +221,7 @@ process_data_single <- function(arguments){
     mutate(
       Sample = paste0(Sample, "-", Mod)
     ) %>%
-    select(Sample, Condition, Mod) %>%
+    dplyr::select(Sample, Condition, Mod) %>%
     arrange(factor(Condition, levels = unique(sample_list_re$Condition)),
             gsub("-.*", "", Sample), 
             factor(Mod, levels = c("notmodified", "modified")))
@@ -232,7 +232,7 @@ process_data_single <- function(arguments){
     mutate(
       Sample = paste0(Sample, "-", Mod)
     ) %>%
-    select(Sample, Condition, Mod) %>%
+    dplyr::select(Sample, Condition, Mod) %>%
     arrange(factor(Condition, levels = unique(sample_list_total$Condition)),
             gsub("-.*", "", Sample), 
             factor(Mod, levels = c("notmodified", "modified")))
