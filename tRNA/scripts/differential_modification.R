@@ -15,7 +15,7 @@ pacman::p_load(
 )
 
 # ----------------------------- Parse Arguments ----------------------------- #
-parser <- ArgumentParser(description = "Optimized nano-tRNASeq Analysis")
+parser <- ArgumentParser(description = "Differential Modification Analysis")
 parser$add_argument("--total", type = "character", help = "Total tRNASeq file path")
 parser$add_argument("--re", type = "character", help = "Ribo-Embedded tRNASeq file path")
 parser$add_argument("--prefix", type = "character", help = "Analysis Prefix")
