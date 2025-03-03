@@ -15,7 +15,7 @@ pacman::p_load(
 )
 
 # ----------------------------- Parse Arguments ----------------------------- #
-parser <- ArgumentParser(description = "Library Reproducibility Check")
+parser <- ArgumentParser(description = "Differential Expression and PC Analysis")
 parser$add_argument("--total", type = "character", help = "Counts of Total tRNASeq file path")
 parser$add_argument("--re", type = "character", help = "Counts of Ribo-Embedded tRNASeq file path")
 parser$add_argument("--prefix", type = "character", help = "Analysis Prefix")
