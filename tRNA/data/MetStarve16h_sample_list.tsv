@@ -1,13 +1,3 @@
-Sample	Condition	Type
-Control_1	Control	TOTAL
-Control_2	Control	TOTAL
-Control_3	Control	TOTAL
-MetStarve16h_1	MetStarve16h	TOTAL
-MetStarve16h_2	MetStarve16h	TOTAL
-MetStarve16h_3	MetStarve16h	TOTAL
-Control_1	Control	RE
-Control_2	Control	RE
-Control_3	Control	RE
-MetStarve16h_1	MetStarve16h	RE
-MetStarve16h_2	MetStarve16h	RE
-MetStarve16h_3	MetStarve16h	RE
+version https://git-lfs.github.com/spec/v1
+oid sha256:05185d5d9aa281e696ea404be312c16f0a5b41ba194738d43132439c2fed9d57
+size 351

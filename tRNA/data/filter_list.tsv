@@ -1,5 +1,3 @@
-Sample	Path
-Sample_1	/Path/To/Sample_1.bam
-Sample_2	/Path/To/Sample_2.bam
-Sample_3	/Path/To/Sample_3.bam
-Sample_4	/Path/To/Sample_4.bam
+version https://git-lfs.github.com/spec/v1
+oid sha256:be81e6756a35d1e3cadf209b71a30c8a255cddfe48c85ffe6cf320cab97e2712
+size 136

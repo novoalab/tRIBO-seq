@@ -1,13 +1,3 @@
-Sample	Condition	Type
-Control_1	Control	TOTAL
-Control_2	Control	TOTAL
-Control_3	Control	TOTAL
-LeuStarve_1	LeuStarve	TOTAL
-LeuStarve_2	LeuStarve	TOTAL
-LeuStarve_3	LeuStarve	TOTAL
-Control_1	Control	RE
-Control_2	Control	RE
-Control_3	Control	RE
-LeuStarve_1	LeuStarve	RE
-LeuStarve_2	LeuStarve	RE
-LeuStarve_3	LeuStarve	RE
+version https://git-lfs.github.com/spec/v1
+oid sha256:3cdd4c078635a5556ca4f6fd553151fa84b33644c54d6116f8c8b368f6276991
+size 315
