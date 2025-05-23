@@ -121,11 +121,12 @@ python3 filter_script.py -i /path/to/input_list.tsv -o /path/to/out -c
 
 ## Dependencies and versions 
 
-Software | Version |
-R | 4.4.2 |
-python | 3.12.4 |
-pandas | 2.2.3 |
-pysam | 0.22.1 |
+Software | Version
+--- | ---
+R | 4.4.2
+python | 3.12.4
+pandas | 2.2.3
+pysam | 0.22.1
 
 ## Citation
 
