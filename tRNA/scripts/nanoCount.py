@@ -17,7 +17,7 @@ import sys
 
 def is_complete(read, refLengths, adapter5, adapter3, margin):
 
-    #Check read start and read end. E.g. for adapter5=24, adapter=30 and margin=5
+    #Check read start and read end. E.g. for adapter5=24, adapter=30 and margin=0
     #Read has to start before 19nt and end after tRNALength + 25th nucleotide
     #with respect to reference positions
     if 'His' in str(read.reference_name):
@@ -404,12 +404,7 @@ def getDemuxStats(demuxPath, readList):
 
     
 
-def main():
-    '''
-    input_list, out_dir, fasta, alignments, demux_stat, length5 = 24,
-            length3 = 30, margin = 0, quality = 10,
-            complete=False, fragment=False, firststrand=False
-      '''      
+def main():    
     import argparse
     
     parser = argparse.ArgumentParser(description='''Count tRNAs in total and in single nucleotide level''',
