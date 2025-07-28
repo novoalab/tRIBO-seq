@@ -18,9 +18,14 @@ def is_complete(read, refLengths, adapter5, adapter3, margin):
     #Read has to start before 19nt and end after tRNALength + 25th nucleotide with respect to reference positions
     if 'His' in str(read.reference_name):
         adapter5 = 44
-    if read.reference_start <= adapter5-margin and \
+    if read.reference_start <= adapter5 and \
         read.reference_end >= refLengths[read.reference_name]-adapter3+margin:
             return True
+    return False
+
+def three_prime_adapter_check(read, refLengths, margin):
+    if read.reference_end >= refLengths[read.reference_name]-margin:
+        return True
     return False
 
 def filter_bam(readList, out_dir, is_complete, len5, len3, margin, qmap, complete=False, fragment=False, firststrand=False):
@@ -52,11 +57,13 @@ def filter_bam(readList, out_dir, is_complete, len5, len3, margin, qmap, complet
 
 
         for read in bamfile:
+             if not three_prime_adapter_check(read, refLengths, margin=margin):
+                continue
             if complete:
-                if not (is_complete(read, refLengths, adapter5=len5, adapter3=len3, margin=margin)):
+                if not is_complete(read, refLengths, adapter5=len5, adapter3=len3, margin=margin):
                     continue
             if fragment:
-                if (is_complete(read, refLengths, adapter5=len5, adapter3=len3, margin=margin)):
+                if is_complete(read, refLengths, adapter5=len5, adapter3=len3, margin=margin):
                     continue
             if read.is_secondary or read.is_supplementary:
                 continue
