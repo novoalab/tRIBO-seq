@@ -15,7 +15,7 @@ pacman::p_load(
 )
 
 # ----------------------------- Parse Arguments ----------------------------- #
-parser <- ArgumentParser(description = "Differential Expression and PC Analysis")
+parser <- ArgumentParser(description = "Library Reproducibility Check")
 parser$add_argument("--total", type = "character", help = "Counts of Total tRNASeq file path")
 parser$add_argument("--re", type = "character", help = "Counts of Ribo-Embedded tRNASeq file path")
 parser$add_argument("--prefix", type = "character", help = "Analysis Prefix")
@@ -102,6 +102,7 @@ single_factor_analysis <- function(arguments, analysis, seq_type){
          device = 'pdf', path = arguments$output, width = 8, height = 8)
   
   result <- result[!is.na(result$padj),]
+  result[result$padj == 0, "padj"] = 2.225074e-307
   
   absMax <- ceiling(max(abs(result$log2FoldChange)))
   
@@ -171,6 +172,7 @@ two_factor_analysis <- function(arguments){
          device = 'pdf', path = arguments$output, width = 8, height = 8)
   
   result <- result[!is.na(result$padj),]
+  result[result$padj == 0, "padj"] = 2.225074e-307
   
   absMax <- ceiling(max(abs(result$log2FoldChange)))
   
