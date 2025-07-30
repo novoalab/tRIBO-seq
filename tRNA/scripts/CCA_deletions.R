@@ -159,5 +159,5 @@ plotting <- function(data_plot, arguments, t){
 
 list[control_plot, treatment_plot] <- read_n_process(args)
 plotting(data_plot = control_plot, arguments = args, t='Control')
-#plotting(data_plot = treatment_plot, arguments = args, t='Treatment')
+plotting(data_plot = treatment_plot, arguments = args, t='Treatment')
 
