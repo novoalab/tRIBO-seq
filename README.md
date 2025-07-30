@@ -118,8 +118,9 @@ Rscript TBC
 
 #### 4.2 Site-specific fragmentatio
 ```
-Mie to complete here with Leszek's script
+python3 bam2ends.py -i /path/to/input.bam -o /path/to/output/bam2ends.tsv
 ```
+This returns a table where each row is XYZ @Mie to complete. 
 
 ## Expected Output
 
