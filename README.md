@@ -1,116 +1,129 @@
 # RiboNano-tRNAseq
 
-This repository contains scripts and workflows for analyzing RiboNano-tRNAseq data.
-We apply both filtered and non-filtered analysis methods to assess reproducibility, differential expression, differential modification and fragmentation. 
+This repository contains scripts and workflows for analyzing RiboNano-tRNAseq data.  
+We apply both filtered and non-filtered analysis methods to assess reproducibility, differential expression, differential modification, and fragmentation of tRNAs.
+
+If you find this work useful, please cite:
+
+Hasan Yilmaz*, Mie Monti*, Alessia Del Piano, Michele Arnoldi, Isabelle Bonomo, Laia Llovera, Eva Maria Novoa#, and Massimiliano Clamer#.
+Selective profiling of translationally active tRNAs and their dynamics under stress _(manuscript in preparation)_
+[DOI to be shared once available]
+
+---
 
 ## Table of Contents
 
-- [Experimental conditions](#Experimental-conditions)
-- [Analysis Workflow](#AnalysisWorkflow)
-	- [1. Reproducibility between libraries and replicates](#1.-Reproducibility-between-libraries-and-replicates)
-	- [2. Principal Component Analysis](#2.-Principal-Component-Analysis)
-	- [3. Differential Expression Analysis](#3.-Differential-Expression-Analysis)
- - 	[4. Differential Modification Analysis](#3.-Differential-Modification-Analysis)
-- [Expected Output](#Expected-output)
-- [Pre-filtering of the BAM files](#Pre-filtering-of-the-BAM-files)
-- [Dependencies and Versions](#Dependencies-and-Versions)
-- [Citation](#Citation) 
-- [Contact](#Contact)
+- [Parameter Setting](#parameter-setting)
+- [Analysis Workflow](#analysis-workflow)  
+  - [1. Reproducibility between libraries and replicates](#1-reproducibility-between-libraries-and-replicates)  
+  - [2. Differential expression analysis](#2-differential-expression-analysis)  
+  - [3. Differential modification analysis](#3-differential-modification-analysis)  
+  - [4. Differential fragmentation analysis](#4-differential-fragmentation-analysis)  
+- [Expected Output](#expected-output)
+- [Dependencies and Versions](#dependencies-and-versions)
+- [Citation](#citation)
+- [Contact](#contact)
 
-### Structure of the directory  (this I would remove later on) 
+---
 
+## Parameter setting
 
-📂 tRNA/
- ├── 📂 scripts/               # Analysis scripts
- │    ├── filter_script.py     # Script for filtering BAM files
- │    ├── analysis_pipeline.R  # Main analysis script
- │    ├── scatterplot.R        # Library reproducibility plot
- │    ├── corrplot.R           # Correlation heatmap script
- │    ├── differential_abundance_and_pca.R # Differential expression and Principal component analysis in codon level
- │    ├── differential_abundance_and_pca_aminoacid.R # Differential expression and Principal component analysis in amino acid level
- │    ├── differential_modification.R # Differential modification analysis
- ├── 📂 data/                  # Processed data and demo files
- │    ├── demo_data.bam        # A small subset BAM file for testing
- │    ├── metadata.tsv         # Metadata for samples
- ├── 📂 results/               # Output figures and processed results
- │    ├── 📂 filtered/         # Results using filtering
- │    ├── 📂 non_filtered/     # Results without filtering
- ├── README.md                 # This README file
- ├── .gitignore                # Ignores large BAM files and unnecessary files
+For your treatment of interest, please define a prefix.  
+**Example**: For Arsenite treatment use the prefix `'Arsenite_'`.
 
-Notes: BAM files should NOT be committed to avoid bloating the repository. Instead, use .tsv output files for processed data. Consider including a small subset BAM file (demo_data.bam) as an example dataset for testing the filtering script.
+In the `Differential Abundance Analysis` module, four suffixes are used:
 
+- **CONTROL**: Ribo-tRNAs vs total tRNAs in control samples  
+- **(TREATMENT)**: Changes based on the prefix (e.g., Ribo-tRNAs vs total tRNAs in treated samples)  
+- **RE**: Treated vs control (Ribo-tRNAs)  
+- **TOTAL**: Treated vs control (Total tRNAs)  
 
-## Experimental Conditions
+For each condition, the analysis is performed using both filtered and non-filtered data.
 
-Note: Each condition has a designated prefix (Again, @Hasan, please edit this as needed!)
+The default filtering parameters are:  
+@Hasan to complete here
 
-* **Arsenite** treatment: 'Arsenite_'
-* **Methionine** starvation: 'MetStarve6h_' or 'MetStarve16h_'
-* **Arginine** starvation: 'ArgStarve_'
-* **Leucine** starvation: 'LeuStarve_'
-
-In Differential Abundance Analysis four suffix assigned
-* **CONTROL** : Ribo-Embedded tRNAs vs Total tRNAs in Control Samples
-* **(TREATMENT)** : This suffix changes with respect to non-control condition and it reflects Ribo-Embedded tRNAs vs Total tRNAs in non-Control Samples
-* **RE** : Non-Control vs Control samples in Ribo-Embedded tRNAs
-* **TOTAL** : Non-Control vs Control samples in Total tRNAs
-  
-For each condition, we perform analysis using both filtered and non-filtered data. Please ensure that the filtering script is included in scripts/filter_script.py.
+---
 
 ## Analysis Workflow
-
-For both filtered and non-filtered datasets, we conduct the following analyses:
 
 ```
 Rscript script_name.R --help (Helper function for all scripts below)
 ```
 
-### 1. Reproducibility Between libraries and replicates
+The command completed for filtering is:
 
-#### 1.1. Scatterplots comparing read counts between replicates
+```
+python3 filter_script.py -i /path/to/input_list.tsv -o /path/to/out -c
+```
+
+For both filtered and non-filtered datasets, we conduct the following analyses:
+
+### 1. Reproducibility between libraries and replicates
+
+#### 1.1. Scatterplots between reps
+
+Generates scatterplots comparing read counts between biological replicates.
 
 ```
 Rscript scatterplot.R --counts /path/to/counts.tsv --prefix YourExperiment_ --type RE or Total --output /path/to/out
 ```
 
-#### 1.2. Correlation plots across all libraries in an experiment
+#### 1.2. Correlation across all libraries in experiment
+
+Generates a correlation matrix across all samples in an experiment.
 
 ```
 Rscript corrplot.R --total /path/to/totaltRNAs/counts.tsv --re /path/to/riboembeddedtRNAs/counts.tsv --prefix YourExperiment_ --output /path/to/out
 ```
 
-### 3. Differential Expression and Principal Component Analysis
+### 2. Differential expression analysis
 
-#### 3.1 Codon Level Analysis
-* Using the models defined (~SeqType, ~Trt_Total, ~Trt_Ribo, ~SeqType*Trt)
-* Output: Volcano plots of differentially expressed tRNAs
-* 
+Differential expression is performed using the DESeq2 framework and outputs include PCA plots, volcano plots, and significance tables.
+Analysis is conducted at both codon and amino acid levels.
+
+#### 2.1 Codon level analysis
+
+Model terms include: ~SeqType, ~Trt_Total, ~Trt_Ribo, ~SeqType*Trt
+
 ```
 Rscript differential_abundance_and_pca.R --total /path/to/totaltRNAs/counts.tsv --re /path/to/riboembeddedtRNAs/counts.tsv --prefix YourExperiment_ --sample_list /path/to/sample_list.tsv --output /path/to/out
 ```
-#### 3.2 Amino Acid Level Analysis
-* Using the models defined (~SeqType, ~Trt_Total, ~Trt_Ribo, ~SeqType*Trt)
-* Output: Volcano plots of differentially expressed tRNAs
-* 
+
+#### 2.2 Amino Acid Level Analysis
+
+Same model structure as codon-level analysis. This script aggregates counts at the amino acid level.
+
 ```
 Rscript differential_abundance_and_pca_aminoacid.R --total /path/to/totaltRNAs/counts.tsv --re /path/to/riboembeddedtRNAs/counts.tsv --prefix YourExperiment_ --sample_list /path/to/sample_list.tsv --output /path/to/out
 ```
 
-### 4. Differential Modification Analysis
+### 3. Differential Modification Analysis
 
-#### tRNA heatmap
+#### 3.1 tRNA heatmap
+
+Visualizes modifications across tRNAs
+
 ```
 Rscript differential_modification.R --total /path/to/totaltRNAs/counts.tsv --re /path/to/riboembeddedtRNAs/counts.tsv --prefix YourExperiment_ --sample_list /path/to/sample_list.tsv --fasta /path/to/tRNAs/alignment/database.aln.fa --output /path/to/out
 ```
 
+### 4. Differential Fragmentation Analysis
+
+#### 4.1 Bulk fragmentation
+
+```
+Rscript TBC
+```
+
+#### 4.2 Site-specific fragmentatio
+```
+Mie to complete here with Leszek's script
+```
+
 ## Expected Output
 
-Results of the pipeline using the demo data can be found in the [results](https://github.com/novoalab/Ribo-embedded/results) folder. 
-
-[Comments - remove this later 
-* Figures: Saved as .pdf for easy viewing and publication use
-* Result files: Stored as .tsv for further inspection and replotting ]
+Results of the pipeline using the demo data can be found in the [results] folder. 
 
 ## Pre-filtering of the BAM files
 
@@ -127,6 +140,8 @@ python | 3.12.4
 pandas | 2.2.3
 pysam | 0.22.1
 
+@Hasan there are a lot of libraries missing here no?
+
 ## Citation
 
 If you find this work useful, please cite: 
@@ -135,7 +150,4 @@ Hasan Yilmaz*, Mie Monti*, Alessia Del Piano, Michele Arnoldi, Isabelle Bonomo, 
 
 ## Contact
 
-If you have any issues running this code, please go first over previous [issues](https://github.com/novoalab/Ribo-embedded/issues). If you still can't figure it out based on the prior responses/issues raised, please open a new issue. Thanks!   
-
-
- 
+If you have any issues running this code, please go first over previous [issues]. If you still can't figure it out based on the prior responses/issues raised, please open a new issue. Thanks!   
