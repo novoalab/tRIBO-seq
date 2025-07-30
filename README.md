@@ -1,7 +1,7 @@
-# Ribo-embedded Nano-tRNAseq Analysis Pipeline
+# RiboNano-tRNAseq
 
-This repository contains scripts and workflows for analyzing ribo-embedded Nano-tRNAseq data. 
-We apply both filtered and non-filtered analysis methods to assess reproducibility, differential expression, and differential modification.
+This repository contains scripts and workflows for analyzing RiboNano-tRNAseq data.
+We apply both filtered and non-filtered analysis methods to assess reproducibility, differential expression, differential modification and fragmentation. 
 
 ## Table of Contents
 
@@ -19,7 +19,6 @@ We apply both filtered and non-filtered analysis methods to assess reproducibili
 
 ### Structure of the directory  (this I would remove later on) 
 
-@Hasan, please edit this as needed!)
 
 📂 tRNA/
  ├── 📂 scripts/               # Analysis scripts
