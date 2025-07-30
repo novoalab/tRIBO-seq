@@ -29,7 +29,7 @@ Selective profiling of translationally active tRNAs and their dynamics under str
 ## Parameter setting
 
 For your treatment of interest, please define a prefix.  
-**Example**: For Arsenite treatment use the prefix `'Arsenite_'`.
+**Example**: For Metinione starved treatment use the prefix `'MetStarve_'`.
 
 In the `Differential Abundance Analysis` module, four suffixes are used:
 
