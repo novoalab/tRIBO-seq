@@ -332,7 +332,7 @@ def get_errors(data, readList):
             tempData.loc[index, f'{sample} sum_err'] = error
     return(tempData)
 
-def createSummary(data, demux):
+def createSummary(data):
     
     data = data.set_index('reference')
     
@@ -361,48 +361,11 @@ def createSummary(data, demux):
                  '% antisense', 'oligo3', '% oligo3', 'oligo5', '% oligo5']]
     data = data.rename(columns= {'index': 'Sample'})
     
-    data = pd.merge(data, demux, on='Sample', how='left')
-    
-    data['% aligned'] = round(data['aligned'] * 100 / data['Demux Reads'], 2)
-    
-    data = data[['Sample', 'Barcode', 'Demux Reads', 'aligned', '% aligned',
-                 'unique', '% unique', 'antisense', '% antisense',
+    data = data[['Sample', 'aligned', 'unique', '% unique',
+                 'antisense', '% antisense',
                  'oligo3', '% oligo3', 'oligo5', '% oligo5']]
     
-    return(data)
-    
-def getDemuxStats(demuxPath, readList):
-    
-    experiments = readList['Experiment'].unique()
-    
-    final_df = pd.DataFrame({"Sample": [],
-                             "Experiment": [],
-                             "Barcode": [],
-                             "Demux Reads": []})
-    
-    for experiment in experiments:
-        temp_read_list = readList[readList['Experiment'] == experiment].copy()
-        
-        temp_path = f'{demuxPath}/{experiment}/demux/pod5.demux.tsv.gz'
-
-        with gzip.open(temp_path, 'rb') as f:
-            file_content = pd.read_csv(f, sep='\t')
-        
-        file_content = file_content.groupby('barcode').count()['read_id']
-        file_content = file_content.reset_index()
-        file_content.columns = ['Barcode', 'Demux Reads']
-
-        file_content = pd.merge(temp_read_list,
-                                file_content, on = 'Barcode', how = 'left')
-        
-        final_df = pd.concat([final_df, file_content], axis=0)
-    
-    final_df = final_df.reset_index(drop=True)
-    
-    return(final_df)
-        
-
-    
+    return(data)    
 
 def main():    
     import argparse
@@ -422,7 +385,6 @@ def main():
     parser.add_argument('-nc', '--not_complete', help='count only not full length tRNAs', action='store_true')
     parser.add_argument('-fs', '--firststrand', help="antisense strand sequencing ie cDNA [sense strand sequencing ie DRS]",
                         action='store_true')
-    parser.add_argument('-x', '--demuxStat', help="Path to demux stat.tsv.gz file")
     
     arguments = parser.parse_args()  
     
@@ -438,7 +400,6 @@ def main():
     complete   = arguments.complete
     fragment   = arguments.not_complete
     firststrand= arguments.firststrand
-    demux_stat = arguments.demuxStat
     
     
     sampleList = dict(zip(pd.read_csv(input_list, sep='\t')['Sample'],
@@ -446,10 +407,6 @@ def main():
     
     conditionList = dict(zip(pd.read_csv(input_list, sep='\t')['Sample'],
                pd.read_csv(input_list, sep='\t')['Condition']))
-    
-    barcodeList = pd.read_csv(
-        input_list, sep='\t'
-        )[['Sample', 'Experiment', 'Barcode']].copy()
     
     references = readRef(alignments)
 
@@ -479,10 +436,8 @@ def main():
     
     tRNA_single_nucleotide.to_csv(f'{out_dir}/counts_single_nucleotide.tsv',
                                   sep='\t', header=True, index=False)
-    
-    demuxStats = getDemuxStats(demuxPath=demux_stat, readList=barcodeList)
 
-    summary = createSummary(data=tRNA_counts, demux=demuxStats)
+    summary = createSummary(data=tRNA_counts)
     
     summary.to_csv(f'{out_dir}/Stats.tsv', sep='\t', header=True, index=False)
     
