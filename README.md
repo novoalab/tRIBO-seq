@@ -13,7 +13,7 @@ Selective profiling of translationally active tRNAs and their dynamics under str
 
 ## Table of Contents
 
-- [Parameter Setting](#parameter-setting)
+- [Introduction to repo](#Introduction)
 - [Analysis Workflow](#analysis-workflow)  
   - [1. Reproducibility between libraries and replicates](#1-reproducibility-between-libraries-and-replicates)  
   - [2. Differential expression analysis](#2-differential-expression-analysis)  
@@ -26,26 +26,43 @@ Selective profiling of translationally active tRNAs and their dynamics under str
 
 ---
 
-## Parameter setting
+## Introduction
 
+This repository contains all the necessary scripts to reproduce the analyses presented in the *RiboNano-tRNAseq* manuscript. A dummy dataset is provided in the `Example_data` directory to illustrate the workflow and enable testing of the pipeline.
 
-XXXX --> dummy data we include whats needed for analysis, and then revise this section
-For your treatment of interest, please define a prefix.  
-**Example**: For Arsenite treatment use the prefix `'Arsenite_'`.
+### File Structure
 
-In the `Differential Abundance Analysis` module, four suffixes are used:
+- Files prefixed with `ribo_nanotrna_` correspond to ribosome-associated tRNA (ribo-tRNA) counts.
+- Files prefixed with `nanotrna_` correspond to total tRNA counts.
+- BAM file inputs are required for this analysis pipeline.
 
-- **CONTROL**: Ribo-tRNAs vs total tRNAs in control samples  
-- **(TREATMENT)**: Changes based on the prefix (e.g., Ribo-tRNAs vs total tRNAs in treated samples)  
-- **RE**: Treated vs control (Ribo-tRNAs)  
-- **TOTAL**: Treated vs control (Total tRNAs)  
+### Prefix Configuration
 
-For each condition, the analysis is performed using both filtered and non-filtered data.
+For each experimental treatment, define a **prefix** that will be used throughout the pipeline.
 
-The default filtering parameters are:  
-- MapQ >= 10
-- 3'Splint Adapter has to exist in reads (see three_prime_adapter_check in nanoCount.py)
-- Full_Length = True (-c option in nanoCount.py)
+Example: For Arsenite treatment, set the prefix to `'Arsenite_'`.
+
+This prefix will guide the naming of output files and the interpretation of comparisons.
+
+### Differential analysis
+
+The `Differential_Abundance_Analysis` module includes comparisons across four categories:
+
+- **CONTROL**: Ribo-tRNAs vs total tRNAs in *control* samples  
+- **(TREATMENT)**: Ribo-tRNAs vs total tRNAs in *treated* samples (based on the defined prefix)  
+- **RE**: Ribo-tRNAs in *treated* vs *control* conditions  
+- **TOTAL**: Total tRNAs in *treated* vs *control* conditions  
+
+Each analysis is conducted using both **filtered** and **non-filtered** datasets.
+
+### Filtering Parameters (Default)
+
+The filtering criteria applied to reads are:
+
+- Mapping Quality (MapQ) ≥ 10  
+- 3′ Splint Adapter must be present (see `three_prime_adapter_check` in `nanoCount.py`)  
+- Full-Length Reads only (`-c` flag in `nanoCount.py`)
+
 
 ---
 
