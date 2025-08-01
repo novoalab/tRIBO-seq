@@ -1,0 +1,5 @@
+Sample	Condition	Path
+control_rep1	Control	Example_Data/ribo_nanotrna_control_rep1.bam
+control_rep2	Control	Example_Data/ribo_nanotrna_control_rep2.bam
+treatment_rep1	Treatment	Example_Data/ribo_nanotrna_treatment_rep1.bam
+treatment_rep2	Treatment	Example_Data/ribo_nanotrna_treatment_rep2.bam
