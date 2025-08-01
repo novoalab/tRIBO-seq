@@ -13,7 +13,7 @@ Selective profiling of translationally active tRNAs and their dynamics under str
 
 ## Table of Contents
 
-- [Introduction to repo](#Introduction)
+- [Introduction](#introduction)
 - [Analysis Workflow](#analysis-workflow)  
   - [1. Processing alignment files](#1-processing-alignment-files)  
   - [2. Reproducibility between libraries and replicates](#2-reproducibility-between-libraries-and-replicates)  
@@ -74,7 +74,7 @@ Rscript script_name.R --help (Helper function for all scripts below)
 python3 nanoCount.python --help
 ```
 
-### 1. Process the alignment files:
+### 1. Processing alignment files
 
 ```
 python3 nanoCount.py -i /path/to/input_list.txt -o /path/to/output/folder -f /path/to/reference.fasta \\
@@ -261,11 +261,26 @@ Rscript fragmentation.R --re_fl Example_Data/ribo_nanotrnaseq/Full_Length/counts
 ```
 
 
-#### 5.2 Site-specific fragmentatio
+#### 5.2 Site-specific fragmentation
+To generate site-specific fragmentation profiles from BAM files, run:
 ```
 python3 bam2ends.py -i /path/to/input.bam -o /path/to/output/bam2ends.tsv
 ```
-This returns a table where each row is XYZ @Mie to complete. 
+
+**Example Data**
+```
+python3 bam2ends.py -i Example/Data/*.bam -o Example_Data/per_site_fragmentation_bam2ends.tsv 
+```
+
+The resulting .tsv file contains per-site fragmentation data and can be used for downstream statistical testing. This output was tested using the **edgeR** framework ([edgeR User’s Guide – page 104](https://www.bioconductor.org/packages/devel/bioc/vignettes/edgeR/inst/doc/edgeRUsersGuide.pdf)).
+
+The following linear model was used:
+`model.matrix(~ type + condition + type:condition, data = sample_info)`
+
+Where:
+
+- `type`: Indicates whether the read has a fragment end (`end`) or not (`no_end`)
+- `condition`: Experimental condition (e.g., `control` or `treatment`)
 
 ## Dependencies and versions 
 
