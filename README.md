@@ -87,32 +87,32 @@ will result **all** reads.
 
 Nano-tRNAseq All Reads (where All = full length *and* fragmented reads)
 ```
-python3 nanoCount.py -i Example/Data/nano_trnaseq_input_list.txt -o Example_Data/nanotrnaseq/All -f Example_Data/reference/hg38.fa \\
+python3 nanoCount.py -i Example/Data/nano_trnaseq_input_list.txt -o Example_Data/Result/nanotrnaseq/All -f Example_Data/reference/hg38.fa \\
     -a Example_Data/reference/hg38.aln.fa
 ```
 Nano-tRNAseq only Full Length Reads
 ```
-python3 nanoCount.py -i Example/Data/nano_trnaseq_input_list.txt -o Example_Data/nanotrnaseq/Full_Length -f Example_Data/reference/hg38.fa \\
+python3 nanoCount.py -i Example/Data/nano_trnaseq_input_list.txt -o Example_Data/Result/nanotrnaseq/Full_Length -f Example_Data/reference/hg38.fa \\
     -a Example_Data/reference/hg38.aln.fa -c
 ```
 Nano-tRNAseq only Fragmented Reads
 ```
-python3 nanoCount.py -i Example/Data/nano_trnaseq_input_list.txt -o Example_Data/nanotrnaseq/Fragment -f Example_Data/reference/hg38.fa \\
+python3 nanoCount.py -i Example/Data/nano_trnaseq_input_list.txt -o Example_Data/Result/nanotrnaseq/Fragment -f Example_Data/reference/hg38.fa \\
     -a Example_Data/reference/hg38.aln.fa -nc
 ```
 Ribo Nano-tRNAseq All Reads
 ```
-python3 nanoCount.py -i Example/Data/ribo_nano_trnaseq_input_list.txt -o Example_Data/ribo_nanotrnaseq/All -f Example_Data/reference/hg38.fa \\
+python3 nanoCount.py -i Example/Data/ribo_nano_trnaseq_input_list.txt -o Example_Data/Result/ribo_nanotrnaseq/All -f Example_Data/reference/hg38.fa \\
     -a Example_Data/reference/hg38.aln.fa
 ```
 Ribo Nano-tRNAseq only Full Length Reads
 ```
-python3 nanoCount.py -i Example/Data/ribo_nano_trnaseq_input_list.txt -o Example_Data/ribo_nanotrnaseq/Full_Length -f Example_Data/reference/hg38.fa \\
+python3 nanoCount.py -i Example/Data/ribo_nano_trnaseq_input_list.txt -o Example_Data/Result/ribo_nanotrnaseq/Full_Length -f Example_Data/reference/hg38.fa \\
     -a Example_Data/reference/hg38.aln.fa -c
 ```
 Ribo Nano-tRNAseq only Fragmented Reads;
 ```
-python3 nanoCount.py -i Example/Data/ribo_nano_trnaseq_input_list.txt -o Example_Data/ribo_nanotrnaseq/Fragment -f Example_Data/reference/hg38.fa \\
+python3 nanoCount.py -i Example/Data/ribo_nano_trnaseq_input_list.txt -o Example_Data/Result/ribo_nanotrnaseq/Fragment -f Example_Data/reference/hg38.fa \\
     -a Example_Data/reference/hg38.aln.fa -nc
 ```
 
@@ -132,8 +132,8 @@ Rscript proportion_plot.R --input /path/to/coverage_proportion.tsv --prefix Your
 After this point outputs of nanoCount.py will be used. Please follow read.me
 
 ```
-Rscript proportion_plot.R --input Example_Data/nanotrnaseq/All/coverage_proportion.tsv --prefix Example_ --suffix Total --output Example_Data/QC
-Rscript proportion_plot.R --input Example_Data/ribo_nanotrnaseq/All/coverage_proportion.tsv --prefix Example_ --suffix RE --output Example_Data/QC
+Rscript proportion_plot.R --input Example_Data/Result/nanotrnaseq/All/coverage_proportion.tsv --prefix Example_ --suffix Total --output Example_Data/Result/QC
+Rscript proportion_plot.R --input Example_Data/Result/ribo_nanotrnaseq/All/coverage_proportion.tsv --prefix Example_ --suffix RE --output Example_Data/Result/QC
 ```
 
 #### 2.2. Scatterplots between reps
@@ -146,7 +146,7 @@ Rscript scatterplot.R --ribo path/to/counts.tsv --total path/to/counts.tsv --pre
 
 **Example Data**
 ```
-Rscript scatterplot.R --ribo Example_Data/ribo_nanotrnaseq/All/counts.tsv --total Example_Data/nanotrnaseq/All/counts.tsv --prefix Example_ --samplefile Example_Data/samplefile.tsv --control Control --treatment Treatment --axes 140000 --output Example_Data/QC
+Rscript scatterplot.R --ribo Example_Data/Result/ribo_nanotrnaseq/All/counts.tsv --total Example_Data/nanotrnaseq/All/counts.tsv --prefix Example_ --samplefile Example_Data/samplefile.tsv --control Control --treatment Treatment --axes 140000 --output Example_Data/Result/QC
 ```
 
 #### 2.3. Correlation across all libraries in experiment
@@ -159,7 +159,7 @@ Rscript corrplot.R --total /path/to/totaltRNAs/counts.tsv --re /path/to/riboembe
 
 **Example Data**
 ```
-Rscript corrplot.R --total Example_Data/nanotrnaseq/All/counts.tsv --re Example_Data/ribo_nanotrnaseq/All/counts.tsv --prefix Example_ --output Example_Data/QC
+Rscript corrplot.R --total Example_Data/Result/nanotrnaseq/All/counts.tsv --re Example_Data/Result/ribo_nanotrnaseq/All/counts.tsv --prefix Example_ --output Example_Data/Result/QC
 ```
 
 #### 2.4. Barplots of tRNAs/mt-tRNAs and rRNAs in experiments
@@ -172,7 +172,7 @@ Rscript biotype_plot.R --total /path/to/totaltRNAs/counts.tsv --re /path/to/ribo
 
 **Example Data**
 ```
-Rscript biotype_plot.R --total Example_Data/nanotrnaseq/All/counts.tsv --re Example_Data/ribo_nanotrnaseq/All/counts.tsv --prefix Example_ --output Example_Data/QC
+Rscript biotype_plot.R --total Example_Data/Result/nanotrnaseq/All/counts.tsv --re Example_Data/Result/ribo_nanotrnaseq/All/counts.tsv --prefix Example_ --output Example_Data/Result/QC
 ```
 
 #### 2.5. MapQ density plots across samples
@@ -185,7 +185,7 @@ Rscript mapq_plot.R --total /path/to/totaltRNAs/quality.tsv --re /path/to/riboem
 
 **Example Data**
 ```
-Rscript mapq_plot.R --total Example_Data/nanotrnaseq/All/quality.tsv --re Example_Data/ribo_nanotrnaseq/All/quality.tsv --prefix Example_ --output Example_Data/QC
+Rscript mapq_plot.R --total Example_Data/Result/nanotrnaseq/All/quality.tsv --re Example_Data/Result/ribo_nanotrnaseq/All/quality.tsv --prefix Example_ --output Example_Data/Result/QC
 ```
 
 ### 3. Differential expression analysis
@@ -203,7 +203,7 @@ Rscript differential_abundance_and_pca.R --total /path/to/totaltRNAs/counts.tsv 
 
 **Example Data**
 ```
-Rscript differential_abundance_and_pca.R --total Example_Data/nanotrnaseq/All/counts.tsv --re Example_Data/ribo_nanotrnaseq/All/counts.tsv --prefix Example_ --sample_list Example_Data/samplefile.tsv --output Example_Data/Differential_Abundance/codon_level
+Rscript differential_abundance_and_pca.R --total Example_Data/Result/nanotrnaseq/All/counts.tsv --re Example_Data/Result/ribo_nanotrnaseq/All/counts.tsv --prefix Example_ --sample_list Example_Data/samplefile.tsv --output Example_Data/Result/Differential_Abundance/codon_level
 ```
 
 #### 3.2 Amino Acid Level Analysis
@@ -216,7 +216,7 @@ Rscript differential_abundance_and_pca_aminoacid.R --total /path/to/totaltRNAs/c
 
 **Example Data**
 ```
-Rscript differential_abundance_and_pca_aminoacid.R --total Example_Data/nanotrnaseq/All/counts.tsv --re Example_Data/ribo_nanotrnaseq/All/counts.tsv --prefix Example_ --sample_list Example_Data/samplefile.tsv --output Example_Data/Differential_Abundance/amino_level
+Rscript differential_abundance_and_pca_aminoacid.R --total Example_Data/Result/nanotrnaseq/All/counts.tsv --re Example_Data/Result/ribo_nanotrnaseq/All/counts.tsv --prefix Example_ --sample_list Example_Data/samplefile.tsv --output Example_Data/Result/Differential_Abundance/amino_level
 ```
 
 ### 4. Differential Modification Analysis
@@ -231,7 +231,7 @@ Rscript differential_modification.R --total /path/to/totaltRNAs/counts.tsv --re 
 
 **Example Data**
 ```
-Rscript differential_modification.R --total Example_Data/nanotrnaseq/All/counts_single_nucleotide.tsv --re Example_Data/ribo_nanotrnaseq/All/counts_single_nucleotide.tsv --prefix Example_ --sample_list Example_Data/samplefile.tsv --fasta Example_Data/reference/hg38.aln.fa --output Example_Data/Differential_Modification/
+Rscript differential_modification.R --total Example_Data/Result/nanotrnaseq/All/counts_single_nucleotide.tsv --re Example_Data/Result/ribo_nanotrnaseq/All/counts_single_nucleotide.tsv --prefix Example_ --sample_list Example_Data/samplefile.tsv --fasta Example_Data/reference/hg38.aln.fa --output Example_Data/Result/Differential_Modification/
 ```
 
 #### 4.2 tRNA heatmap in Type Level
@@ -244,7 +244,7 @@ Rscript differential_modification_exp.R --total /path/to/totaltRNAs/counts.tsv -
 
 **Example Data**
 ```
-Rscript differential_modification_exp.R --total Example_Data/nanotrnaseq/All/counts_single_nucleotide.tsv --re Example_Data/ribo_nanotrnaseq/All/counts_single_nucleotide.tsv --prefix Example_ --sample_list Example_Data/samplefile.tsv --fasta Example_Data/reference/hg38.aln.fa --control Control --treatment Treatment --output Example_Data/Differential_Modification/
+Rscript differential_modification_exp.R --total Example_Data/Result/nanotrnaseq/All/counts_single_nucleotide.tsv --re Example_Data/Result/ribo_nanotrnaseq/All/counts_single_nucleotide.tsv --prefix Example_ --sample_list Example_Data/samplefile.tsv --fasta Example_Data/reference/hg38.aln.fa --control Control --treatment Treatment --output Example_Data/Result/Differential_Modification/
 ```
 
 ### 5. Differential Fragmentation Analysis
@@ -257,7 +257,7 @@ Rscript fragmentation.R --re_fl /path/to/ribo_trnas/Full_Length/counts.tsv --re_
 
 **Example Data**
 ```
-Rscript fragmentation.R --re_fl Example_Data/ribo_nanotrnaseq/Full_Length/counts.tsv --re_fr Example_Data/ribo_nanotrnaseq/Fragment/counts.tsv --total_fl Example_Data/nanotrnaseq/Full_Length/counts.tsv --total_fr Example_Data/nanotrnaseq/Fragment/counts.tsv --sample_list Example_Data/samplefile_fragmentation.tsv --prefix Example_ --condition CONTROL <Control,Treatmen> --type TOTAL <Total,RE> --output /Example_Data/Fragmentation
+Rscript fragmentation.R --re_fl Example_Data/Result/ribo_nanotrnaseq/Full_Length/counts.tsv --re_fr Example_Data/Result/ribo_nanotrnaseq/Fragment/counts.tsv --total_fl Example_Data/Result/nanotrnaseq/Full_Length/counts.tsv --total_fr Example_Data/Result/nanotrnaseq/Fragment/counts.tsv --sample_list Example_Data/samplefile_fragmentation.tsv --prefix Example_ --condition CONTROL <Control,Treatmen> --type TOTAL <Total,RE> --output /Example_Data/Result/Fragmentation
 ```
 
 
