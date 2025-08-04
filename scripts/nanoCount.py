@@ -14,6 +14,7 @@ import numpy as np
 import gzip
 import re
 import sys
+import os
 
 def is_complete(read, refLengths, adapter5, adapter3, margin):
 
@@ -361,10 +362,6 @@ def createSummary(data):
                  '% antisense', 'oligo3', '% oligo3', 'oligo5', '% oligo5']]
     data = data.rename(columns= {'index': 'Sample'})
     
-    data = data[['Sample', 'aligned', 'unique', '% unique',
-                 'antisense', '% antisense',
-                 'oligo3', '% oligo3', 'oligo5', '% oligo5']]
-    
     return(data)    
 
 def main():    
@@ -402,8 +399,10 @@ def main():
     firststrand= arguments.firststrand
     
     
+    current_dir = os.getcwd()
     sampleList = dict(zip(pd.read_csv(input_list, sep='\t')['Sample'],
-               pd.read_csv(input_list, sep='\t')['Path']))
+               current_dir + "/" +pd.read_csv(input_list, sep='\t')['Path']))
+    
     
     conditionList = dict(zip(pd.read_csv(input_list, sep='\t')['Sample'],
                pd.read_csv(input_list, sep='\t')['Condition']))
@@ -443,8 +442,8 @@ def main():
     
     print('nanoCount landed on Mars!..')
     
-    if __name__ == '__main__':
-        try:
-            main()
-        except KeyboardInterrupt:
-            sys.stderr.write("\nMission Aborted!\nReturning to the Earth!     \n")
+if __name__ == '__main__':
+    try:
+        main()
+    except KeyboardInterrupt:
+        sys.stderr.write("\nMission Aborted!\nReturning to the Earth!     \n")
