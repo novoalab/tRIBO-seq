@@ -1,7 +1,13 @@
 # tRIBO-seq
 
-This repository contains scripts and workflows for analyzing tRIBO-seq datasets.  
-We apply both filtered and non-filtered analysis methods to assess reproducibility, differential expression, differential modification, and fragmentation of tRNAs.
+This repository contains scripts and workflows for analyzing tRIBO-seq datasets, including: 
+* quality metrics and reproducibility
+* read filtering
+* differential expression
+* differential modification
+* fragmentation of tRNAs
+
+
 
 If you find this work useful, please cite:
 
