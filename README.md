@@ -1,11 +1,11 @@
-# RiboNano-tRNAseq
+# tRIBO-seq
 
-This repository contains scripts and workflows for analyzing RiboNano-tRNAseq data.  
+This repository contains scripts and workflows for analyzing tRIBO-seq datasets.  
 We apply both filtered and non-filtered analysis methods to assess reproducibility, differential expression, differential modification, and fragmentation of tRNAs.
 
 If you find this work useful, please cite:
 
-Hasan Yilmaz*, Mie Monti*, Alessia Del Piano, Michele Arnoldi, Isabelle Bonomo, Laia Llovera, Eva Maria Novoa#, and Massimiliano Clamer#.
+Hasan Yilmaz*, Mie Monti*, Alessia Del Piano, Michele Arnoldi, Isabelle Bonomo, Laia Llovera, Massimiliano Clamer# and Eva Maria Novoa#,
 Selective profiling of translationally active tRNAs and their dynamics under stress _(manuscript in preparation)_
 [DOI to be shared once available]
 
@@ -29,7 +29,7 @@ Selective profiling of translationally active tRNAs and their dynamics under str
 
 ## Introduction
 
-This repository contains all the necessary scripts to reproduce the analyses presented in the *RiboNano-tRNAseq* manuscript. A dummy dataset is provided in the `Example_data` directory to illustrate the workflow and enable testing of the pipeline.
+This repository contains all the necessary scripts to reproduce the analyses presented in the *tRIBO-seq* manuscript. A dummy dataset is provided in the `Example_data` directory to illustrate the workflow and enable testing of the pipeline.
 
 ### File Structure
 
@@ -322,9 +322,10 @@ wesanderson | 0.3.7
 
 ## Citation
 
-If you find this work useful, please cite: 
+Hasan Yilmaz*, Mie Monti*, Alessia Del Piano, Michele Arnoldi, Isabelle Bonomo, Laia Llovera, Massimiliano Clamer# and Eva Maria Novoa#,
+Selective profiling of translationally active tRNAs and their dynamics under stress _(manuscript in preparation)_
+[DOI to be shared once available]
 
-Hasan Yilmaz*, Mie Monti*, Alessia Del Piano, Michele Arnoldi, Isabelle Bonomo, Laia Llovera, Eva Maria Novoa# and Massimiliano Clamer#. Revealing Stress-Specific Differences Between Riboembedded and Total tRNA Populations (in preparation).
 
 ## Contact
 
