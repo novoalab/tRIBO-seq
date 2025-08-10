@@ -326,7 +326,7 @@ wesanderson | 0.3.7
 
 ## Citation
 
-Hasan Yilmaz*, Mie Monti*, Alessia Del Piano, Michele Arnoldi, Isabelle Bonomo, Laia Llovera, Massimiliano Clamer# and Eva Maria Novoa#. Selective profiling of translationally active tRNAs and their dynamics under stress _(manuscript in preparation)_[DOI to be shared once available]
+Hasan Yilmaz*, Mie Monti*, Alessia Del Piano, Michele Arnoldi, Isabelle Bonomo, Laia Llovera, Massimiliano Clamer# and Eva Maria Novoa#. **Selective profiling of translationally active tRNAs and their dynamics under stress** _(manuscript in preparation)_[DOI to be shared once available]
 
 
 ## Contact
