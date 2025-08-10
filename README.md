@@ -2,7 +2,7 @@
 
 This repository contains scripts and workflows for analyzing tRIBO-seq datasets. tRBIBO-seq is a method to selectively profile ribosome-embedded native tRNAs using nanopore sequencing technologies. 
 
-- **What's included**
+### What's included?
 
 This repository includes scripts to perform the following steps: 
 * quality metrics and reproducibility
@@ -11,10 +11,9 @@ This repository includes scripts to perform the following steps:
 * differential modification
 * fragmentation of tRNAs
 
+If you find this work useful please cite: 
 
-- **If you find this work useful**
-
-Please cite: Hasan Yilmaz*, Mie Monti*, Alessia Del Piano, Michele Arnoldi, Isabelle Bonomo, Laia Llovera, Massimiliano Clamer# and Eva Maria Novoa#. **Selective profiling of translationally active tRNAs and their dynamics under stress** _(manuscript in preparation)_
+Hasan Yilmaz*, Mie Monti*, Alessia Del Piano, Michele Arnoldi, Isabelle Bonomo, Laia Llovera, Massimiliano Clamer# and Eva Maria Novoa#. **Selective profiling of translationally active tRNAs and their dynamics under stress** _(manuscript in preparation)_
 
 ---
 
