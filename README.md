@@ -11,9 +11,7 @@ This repository contains scripts and workflows for analyzing tRIBO-seq datasets,
 
 If you find this work useful, please cite:
 
-Hasan Yilmaz*, Mie Monti*, Alessia Del Piano, Michele Arnoldi, Isabelle Bonomo, Laia Llovera, Massimiliano Clamer# and Eva Maria Novoa#,
-Selective profiling of translationally active tRNAs and their dynamics under stress _(manuscript in preparation)_
-[DOI to be shared once available]
+Hasan Yilmaz*, Mie Monti*, Alessia Del Piano, Michele Arnoldi, Isabelle Bonomo, Laia Llovera, Massimiliano Clamer# and Eva Maria Novoa#. **Selective profiling of translationally active tRNAs and their dynamics under stress** _(manuscript in preparation)_
 
 ---
 
@@ -328,11 +326,9 @@ wesanderson | 0.3.7
 
 ## Citation
 
-Hasan Yilmaz*, Mie Monti*, Alessia Del Piano, Michele Arnoldi, Isabelle Bonomo, Laia Llovera, Massimiliano Clamer# and Eva Maria Novoa#,
-Selective profiling of translationally active tRNAs and their dynamics under stress _(manuscript in preparation)_
-[DOI to be shared once available]
+Hasan Yilmaz*, Mie Monti*, Alessia Del Piano, Michele Arnoldi, Isabelle Bonomo, Laia Llovera, Massimiliano Clamer# and Eva Maria Novoa#. Selective profiling of translationally active tRNAs and their dynamics under stress _(manuscript in preparation)_[DOI to be shared once available]
 
 
 ## Contact
 
-If you have any issues running this code, please go first over previous [issues]. If you still can't figure it out based on the prior responses/issues raised, please open a new issue. Thanks!   
+If you have any issues running this code, please go first over previous [issues](https://github.com/novoalab/tRIBO-seq/issues/). If you still can't figure it out based on the prior responses/issues raised, please open a new issue. Thanks!   
