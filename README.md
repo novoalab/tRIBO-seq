@@ -15,6 +15,16 @@ If you find this work useful please cite:
 
 Hasan Yilmaz*, Mie Monti*, Alessia Del Piano, Michele Arnoldi, Isabelle Bonomo, Laia Llovera, Massimiliano Clamer# and Eva Maria Novoa#. **Selective profiling of translationally active tRNAs and their dynamics under stress** _(manuscript in preparation)_
 
+## Installation
+
+To get a local copy of the repository, clone it using:
+
+    git clone https://github.com/novoalab/tRIBO-seq.git
+
+Then navigate into the project directory:
+
+    cd <your-repo>
+
 ---
 
 ## Table of Contents
