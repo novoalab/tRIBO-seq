@@ -97,12 +97,11 @@ single_factor_analysis <- function(arguments, analysis, seq_type){
               sep = "\t", quote = FALSE)
   
   vsd <- varianceStabilizingTransformation(dds, blind=FALSE)
-  top_genes <- rownames(result[order(result$padj),][1:round(0.1 * nrow(result)), ])
   
   
   message('Plots are preparing...')
   
-  pca <- plotPCA(vsd[top_genes, ], intgroup = analysis) +
+  pca <- plotPCA(vsd, intgroup = analysis) +
     geom_label_repel(aes(label=name)) +
     theme_pubr(border = T) +
     theme(legend.position = "none", aspect.ratio = 1)
