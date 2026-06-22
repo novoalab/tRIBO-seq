@@ -11,21 +11,12 @@ This repository includes scripts to perform the following steps:
 * differential modification
 * fragmentation of tRNAs
 
-If you find this work useful please cite: 
-
-Hasan Yilmaz*, Mie Monti*, Alessia Del Piano, Michele Arnoldi, Isabelle Bonomo, Laia Llovera, Massimiliano Clamer# and Eva Maria Novoa#. **Selective profiling of translationally active tRNAs and their dynamics under stress** _(manuscript in preparation)_
-
 ## Installation
 
 To get a local copy of the repository, clone it using:
 
     git clone https://github.com/novoalab/tRIBO-seq.git
 
-Then navigate into the project directory:
-
-    cd <your-repo>
-
----
 
 ## Table of Contents
 
@@ -338,8 +329,7 @@ wesanderson | 0.3.7
 
 ## Citation
 
-Hasan Yilmaz*, Mie Monti*, Alessia Del Piano, Michele Arnoldi, Isabelle Bonomo, Laia Llovera, Massimiliano Clamer# and Eva Maria Novoa#. **Selective profiling of translationally active tRNAs and their dynamics under stress** _(manuscript in preparation)_[DOI to be shared once available]
-
+Mie Monti*, Hasan Yilmaz*, Alessia Del Piano, Michele Arnoldi, Isabelle Bonomo, Laia Llovera, Jessica Sarabando, Daniela Ribeiro, Ana Raquel Soares, Massimiliano Clamer#,  Eva Maria Novoa#. **Selective profiling of translationally active tRNAs and their dynamics under stress**, bioRxiv 2026, available [HERE](https://www.biorxiv.org/content/10.64898/2026.03.02.709006v1.full). (under review)
 
 ## Contact
 
