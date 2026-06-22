@@ -27,7 +27,6 @@ To get a local copy of the repository, clone it using:
   - [3. Differential expression analysis](#3-differential-expression-analysis)  
   - [4. Differential modification analysis](#4-differential-modification-analysis)  
   - [5. Differential fragmentation analysis](#5-differential-fragmentation-analysis)  
-- [Expected Output](#expected-output)
 - [Dependencies and Versions](#dependencies-and-versions)
 - [Citation](#citation)
 - [Contact](#contact)
